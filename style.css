@@ -577,7 +577,7 @@ footer {
   .mobile-menu-btn { display: block; }
   #mainNav {
     display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
-    background: #0f1117; backdrop-filter: blur(20px); padding: 24px;
+    background: #0f1117; padding: 24px;
     z-index: 100; border-top: 1px solid var(--border);
     box-shadow: 0 8px 32px rgba(0,0,0,0.6);
   }
@@ -687,3 +687,10 @@ footer {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* Mobile menu overlay */
+@media (max-width: 768px) {
+  body.menu-open > *:not(header) {
+    visibility: hidden;
+  }
+}
