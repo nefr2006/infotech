@@ -613,7 +613,7 @@ footer {
 
   .toast-container { right: 10px; left: 10px; }
   .toast { min-width: auto; width: 100%; }
-  .user-dropdown { width: calc(100% - 40px); right: 20px !important; }
+  .user-dropdown { width: calc(100% - 40px); }
 
   .filters-bar { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
 
@@ -688,9 +688,9 @@ footer {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-/* Mobile menu overlay */
+/* Mobile menu overlay - скрываем контент за меню, но не дропдауны/модалки */
 @media (max-width: 768px) {
-  body.menu-open > *:not(header) {
+  body.menu-open > *:not(header):not(#userMenu):not(#authModal):not(.toast-container) {
     visibility: hidden;
   }
 }
