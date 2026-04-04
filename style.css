@@ -216,7 +216,8 @@ header {
 .feature-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
 
 /* ========== CONTACT ========== */
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+#contact { text-align: center; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; max-width: 960px; margin: 0 auto; }
 .contact-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 28px 20px; text-align: center; transition: var(--transition);
@@ -233,7 +234,7 @@ header {
 /* ========== FOOTER ========== */
 footer {
   background: var(--bg-card); border-top: 1px solid var(--border); padding: 48px 0 32px;
-  margin-top: 0;
+  margin-top: 0; position: relative;
 }
 .footer-inner { text-align: center; }
 .footer-logo { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; margin-bottom: 16px; }
@@ -324,7 +325,13 @@ footer {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 40px; margin-bottom: 32px; line-height: 1.8; font-size: 1rem; color: var(--text);
 }
-.lesson-content.dark-mode { background: #111318; color: #d1d5db; }
+.lesson-content.light-mode { background: #ffffff; color: #1a1a1a; border-color: #e0e0e0; }
+.lesson-content.light-mode h1 { color: #111111; }
+.lesson-content.light-mode h2 { color: #4f46e5; border-bottom-color: #e0e0e0; }
+.lesson-content.light-mode h3 { color: #1a1a1a; }
+.lesson-content.light-mode pre { background: #f6f8fa; border-color: #e0e0e0; }
+.lesson-content.light-mode code { color: #0550ae; }
+.lesson-content.light-mode a { color: #0284c7; }
 .lesson-content h1 { font-size: 1.8rem; margin-bottom: 16px; color: #fff; }
 .lesson-content h2 { font-size: 1.4rem; margin: 28px 0 12px; color: var(--primary-light); border-bottom: 1px solid var(--border); padding-bottom: 8px; }
 .lesson-content h3 { font-size: 1.2rem; margin: 20px 0 10px; color: #fff; }
@@ -570,8 +577,9 @@ footer {
   .mobile-menu-btn { display: block; }
   #mainNav {
     display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
-    background: rgba(15,17,23,0.98); backdrop-filter: blur(20px); padding: 24px;
-    z-index: 100;
+    background: #0f1117; backdrop-filter: blur(20px); padding: 24px;
+    z-index: 100; border-top: 1px solid var(--border);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
   }
   #mainNav.active { display: block; }
   #mainNav ul { flex-direction: column; gap: 4px; }
@@ -659,6 +667,19 @@ footer {
   header, footer, .btn-back, .lesson-view-tools, .lesson-progress-bar, .filters-bar, .search-bar { display: none !important; }
   .lesson-content { border: none; padding: 0; background: #fff; color: #000; }
   body { background: #fff; color: #000; }
+}
+
+/* ========== FOOTER ADMIN BTN ========== */
+.footer-admin-btn {
+  position: absolute; bottom: 20px; left: 20px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; text-decoration: none; transition: var(--transition);
+}
+.footer-admin-btn:hover {
+  background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.3);
+  color: var(--primary-light); transform: scale(1.1);
 }
 
 /* Scrollbar */
