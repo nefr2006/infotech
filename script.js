@@ -111,8 +111,19 @@ function toggleDropdown() {
   if (dd.style.display === 'block') { dd.style.display = 'none'; return; }
   var r = document.getElementById('authButton').getBoundingClientRect();
   dd.style.top = (r.bottom + 8) + 'px';
-  dd.style.right = (window.innerWidth - r.right) + 'px';
+  // На мобиле растягиваем на всю ширину с отступами
+  if (window.innerWidth <= 768) {
+    dd.style.left = '20px';
+    dd.style.right = '20px';
+    dd.style.width = 'auto';
+  } else {
+    dd.style.left = '';
+    dd.style.right = (window.innerWidth - r.right) + 'px';
+    dd.style.width = '';
+  }
   dd.style.display = 'block';
+  // Поднимаем дропдаун выше menu-open слоя
+  dd.style.zIndex = '200';
 }
 function closeDropdown() { document.getElementById('userMenu').style.display = 'none'; }
 
