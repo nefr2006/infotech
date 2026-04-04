@@ -52,6 +52,7 @@ function navigate(page, data) {
 
   document.getElementById('mainNav')?.classList.remove('active');
   document.getElementById('mobileMenuBtn')?.classList.remove('active');
+  document.body.classList.remove('menu-open');
   closeDropdown();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -65,13 +66,16 @@ function goToSection(id) {
   }
   document.getElementById('mainNav')?.classList.remove('active');
   document.getElementById('mobileMenuBtn')?.classList.remove('active');
+  document.body.classList.remove('menu-open');
 }
 
 // ========== MOBILE MENU ==========
 function initMobileMenu() {
   document.getElementById('mobileMenuBtn')?.addEventListener('click', function () {
     this.classList.toggle('active');
-    document.getElementById('mainNav').classList.toggle('active');
+    var nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+    document.body.classList.toggle('menu-open', nav.classList.contains('active'));
   });
 }
 
