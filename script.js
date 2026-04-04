@@ -282,7 +282,9 @@ async function viewLesson(id) {
       '<span><i class="fas fa-eye"></i> ' + l.views + '</span>';
     document.getElementById('lessonViewContent').innerHTML = l.content || '';
     fontSize = 1;
-    document.getElementById('lessonViewContent').classList.remove('dark-mode');
+    document.getElementById('lessonViewContent').classList.remove('light-mode');
+    document.getElementById('darkBtn').innerHTML = '<i class="fas fa-sun"></i>';
+    document.getElementById('darkBtn').title = 'Светлая тема';
   } catch (e) { toast('Ошибка загрузки', 'error'); }
 }
 
@@ -293,6 +295,13 @@ function changeFontSize(d) {
 
 function toggleDark() {
   var el = document.getElementById('lessonViewContent');
-  el.classList.toggle('dark-mode');
-  document.getElementById('darkBtn').innerHTML = el.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+  el.classList.toggle('light-mode');
+  var btn = document.getElementById('darkBtn');
+  if (el.classList.contains('light-mode')) {
+    btn.innerHTML = '<i class="fas fa-moon"></i>';
+    btn.title = 'Тёмная тема';
+  } else {
+    btn.innerHTML = '<i class="fas fa-sun"></i>';
+    btn.title = 'Светлая тема';
+  }
 }
